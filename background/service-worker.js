@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 async function handleExtractInvoice({ apiKey, invoiceText }) {
-  const DASHSCOPE_API_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
+  const DASHSCOPE_API_URL = 'https://coding.dashscope.aliyuncs.com/v1/chat/completions';
 
   const PROMPT = `你是一个专业的发票信息提取助手。请从用户提供的发票文本中提取结构化信息，以JSON格式返回。
 

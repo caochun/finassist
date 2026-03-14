@@ -10,7 +10,7 @@
   ],
   "host_permissions": [
     "https://ndcwc.nju.edu.cn/*",
-    "https://dashscope.aliyuncs.com/*"
+    "https://coding.dashscope.aliyuncs.com/*"
   ],
   "action": {
     "default_popup": "popup/popup.html",

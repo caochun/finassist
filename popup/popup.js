@@ -25,11 +25,16 @@ const apiKeyInput = document.getElementById('api-key');
 const modelSelect = document.getElementById('model-select');
 
 let currentInvoiceData = null;
-let settingsVisible = false;
+let settingsVisible = true; // 默认展开设置面板
 
 // 初始化：加载保存的设置
 chrome.storage.local.get(['apiKey', 'model'], (result) => {
-  if (result.apiKey) apiKeyInput.value = result.apiKey;
+  if (result.apiKey) {
+    apiKeyInput.value = result.apiKey;
+    // 已有 API Key 时，默认收起设置面板
+    settingsVisible = false;
+    panelSettings.classList.add('hidden');
+  }
   if (result.model) modelSelect.value = result.model;
 });
 
