@@ -23,9 +23,9 @@
       <div class="form-group">
         <label for="model-select">模型</label>
         <select id="model-select">
-          <option value="qwen-plus">qwen-plus</option>
-          <option value="qwen-turbo">qwen-turbo</option>
-          <option value="qwen-max">qwen-max</option>
+          <option value="qwen3.5-plus">qwen3.5-plus</option>
+          <option value="qwen3-coder-plus">qwen3-coder-plus</option>
+          <option value="qwen3-max-2026-01-23">qwen3-max</option>
         </select>
       </div>
       <button id="btn-save-settings" class="btn btn-primary">保存设置</button>
@@ -43,7 +43,7 @@
         <p>或</p>
         <label class="btn btn-secondary">
           选择文件
-          <input type="file" id="file-input" accept=".pdf" hidden>
+          <input type="file" id="file-input" accept=".pdf" multiple hidden>
         </label>
       </div>
 
@@ -51,8 +51,21 @@
 
       <!-- 解析结果 -->
       <div id="panel-result" class="hidden">
-        <h2>解析结果</h2>
-        <div id="result-content"></div>
+        <h2>解析结果 (<span id="invoice-count">0</span> 张)</h2>
+        <div id="result-content">
+          <table id="invoice-table">
+            <thead>
+              <tr>
+                <th>文件名</th>
+                <th>类型</th>
+                <th>金额</th>
+                <th>项目</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="invoice-tbody"></tbody>
+          </table>
+        </div>
         <div class="actions">
           <button id="btn-fill" class="btn btn-primary">填入表单</button>
           <button id="btn-clear" class="btn btn-secondary">清除</button>

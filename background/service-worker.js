@@ -22,8 +22,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-async function handleExtractInvoice({ apiKey, invoiceText }) {
+async function handleExtractInvoice({ apiKey, invoiceText, model = 'qwen3.5-plus', projectOptions = [] }) {
   const DASHSCOPE_API_URL = 'https://coding.dashscope.aliyuncs.com/v1/chat/completions';
+
+  // 构建项目列表提示
+  let projectHint = '';
+  if (projectOptions.length > 0) {
+    const optionList = projectOptions.map(o =>
+      o.subProject ? `${o.project} - ${o.subProject}` : o.project
+    ).join('\n');
+    projectHint = `
+
+另外，请根据发票内容（商品名称、销售方行业等）从以下报销项目列表中选择最匹配的一个，填入"suggestedProject"字段（必须完全匹配列表中的某一项，格式为"项目 - 子项目"）：
+${optionList}`;
+  }
 
   const PROMPT = `你是一个专业的发票信息提取助手。请从用户提供的发票文本中提取结构化信息，以JSON格式返回。
 
@@ -40,9 +52,10 @@ async function handleExtractInvoice({ apiKey, invoiceText }) {
   "totalAmount": "合计金额",
   "totalTax": "合计税额",
   "totalWithTaxNumber": "价税合计数字",
-  "remark": "备注"
+  "remark": "备注",
+  "suggestedProject": "推荐的报销项目"
 }
-不存在的字段设为null，金额用数字，日期用YYYY-MM-DD，仅返回JSON。`;
+不存在的字段设为null，金额用数字，日期用YYYY-MM-DD，仅返回JSON。${projectHint}`;
 
   const response = await fetch(DASHSCOPE_API_URL, {
     method: 'POST',
@@ -51,7 +64,7 @@ async function handleExtractInvoice({ apiKey, invoiceText }) {
       'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      model: 'qwen-plus',
+      model,
       messages: [
         { role: 'system', content: PROMPT },
         { role: 'user', content: invoiceText }

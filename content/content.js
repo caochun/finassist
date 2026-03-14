@@ -48,6 +48,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'GET_PAGE_INPUTS') {
     sendResponse({ inputs: detectPageInputs() });
   }
+
+  if (message.type === 'GET_EXPENSE_PROJECTS') {
+    sendResponse({ projects: detectExpenseProjects() });
+  }
 });
 
 /**
@@ -117,6 +121,68 @@ function setInputValue(element, value) {
   element.dispatchEvent(new Event('input', { bubbles: true }));
   element.dispatchEvent(new Event('change', { bubbles: true }));
   element.dispatchEvent(new Event('blur', { bubbles: true }));
+}
+
+/**
+ * 从页面"费用明细填写"表格中提取项目和子项目选项
+ */
+function detectExpenseProjects() {
+  const projects = [];
+
+  // 查找包含"费用明细填写"文本的区域附近的表格
+  const allElements = document.querySelectorAll('*');
+  let targetTable = null;
+
+  for (const el of allElements) {
+    if (el.children.length === 0 && el.textContent.includes('费用明细填写')) {
+      // 找到标题后，向上或向后查找最近的表格
+      let sibling = el.nextElementSibling;
+      while (sibling) {
+        if (sibling.tagName === 'TABLE' || sibling.querySelector('table')) {
+          targetTable = sibling.tagName === 'TABLE' ? sibling : sibling.querySelector('table');
+          break;
+        }
+        sibling = sibling.nextElementSibling;
+      }
+      if (!targetTable) {
+        const parent = el.closest('div, section, fieldset');
+        if (parent) {
+          targetTable = parent.querySelector('table');
+        }
+      }
+      if (targetTable) break;
+    }
+  }
+
+  if (!targetTable) return projects;
+
+  // 找到表头，确定"项目"和"子项目"列的索引
+  const headerRow = targetTable.querySelector('tr');
+  if (!headerRow) return projects;
+
+  const headers = Array.from(headerRow.querySelectorAll('th, td')).map(th => th.textContent.trim());
+  const projectIdx = headers.findIndex(h => h === '项目');
+  const subProjectIdx = headers.findIndex(h => h === '子项目');
+
+  if (projectIdx === -1) return projects;
+
+  // 遍历数据行
+  const rows = targetTable.querySelectorAll('tr');
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i].querySelectorAll('td');
+    if (cells.length <= projectIdx) continue;
+
+    const project = cells[projectIdx]?.textContent.trim();
+    const subProject = subProjectIdx !== -1 && cells[subProjectIdx]
+      ? cells[subProjectIdx].textContent.trim()
+      : '';
+
+    if (project) {
+      projects.push({ project, subProject });
+    }
+  }
+
+  return projects;
 }
 
 /**
