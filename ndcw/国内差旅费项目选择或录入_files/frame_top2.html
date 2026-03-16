@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+
+</title><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><link href="./base.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="./reset.css"><link rel="stylesheet" type="text/css" href="./cs-select.css"><link rel="stylesheet" type="text/css" href="./menu.css">
+
+    <script src="./html5.js" type="text/javascript"></script>
+    <script src="./jquery-1.10.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function LOGINOUT() {
+            if (confirm('确定要退出吗？') == true) {
+                clearCookie();
+                window.parent.opener = null;
+                window.parent.open("about:blank", "_self").close();
+            }
+        }
+        function clearCookie() {
+            var keys = document.cookie.match(/[^=;]+(?=\=)/g);
+            if (keys) {
+                for (var i = keys.length; i--;)
+                    if (keys[i] == "Ygbh") { document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString() + ";path=/" }
+            }
+        }
+
+        function setTab(m) {
+            //alert(m);
+            var tli = document.getElementById("DL_Menu").getElementsByTagName("li");
+            //alert(tli);
+            for (var i = 0; i < tli.length; i++) {
+                if (tli[i].id == m) {
+                    tli[i].className = m + 'H';
+                }
+                else { tli[i].className = tli[i].className.toString().replace("H", ""); }
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        //function openwin() {
+        //    window.open("Modules/SY/ZDCX.aspx", "", "width=600,height=600");
+        //}
+        //function get_cookie(Name) {
+        //    var search = Name + "="
+        //    var returnvalue = "";
+        //    if (document.cookie.length > 0) {
+        //        offset = document.cookie.indexOf(search)
+        //        if (offset != -1) {
+        //            offset += search.length
+        //            end = document.cookie.indexOf(";", offset);
+        //            if (end == -1)
+        //                end = document.cookie.length;
+        //            returnvalue = unescape(document.cookie.substring(offset, end))
+        //        }
+        //    }
+        //    return returnvalue;
+        //}
+
+        //function loadpopup() {
+        //    if (get_cookie('popped') == '' || get_cookie('popped') == nul) {
+        //        openwin();
+        //        document.cookie = "popped=yes";
+        //    }
+        //}
+
+        //处理键盘事件 禁止后退键（Backspace）密码或单行、多行文本框除外
+        function forbidBackSpace(e) {
+            var ev = e || window.event; //获取event对象 
+            var obj = ev.target || ev.srcElement; //获取事件源 
+            var t = obj.type || obj.getAttribute('type'); //获取事件源类型 
+            //获取作为判断条件的事件类型 
+            var vReadOnly = obj.readOnly;
+            var vDisabled = obj.disabled;
+            //处理undefined值情况 
+            vReadOnly = (vReadOnly == undefined) ? false : vReadOnly;
+            vDisabled = (vDisabled == undefined) ? true : vDisabled;
+            //当敲Backspace键时，事件源类型为密码或单行、多行文本的， 
+            //并且readOnly属性为true或disabled属性为true的，则退格键失效 
+            var flag1 = ev.keyCode == 8 && (t == "password" || t == "text" || t == "textarea") && (vReadOnly == true || vDisabled == true);
+            //当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效 
+            var flag2 = ev.keyCode == 8 && t != "password" && t != "text" && t != "textarea";
+            //判断 
+            if (flag2 || flag1) return false;
+        }
+        //禁止后退键 作用于Firefox、Opera
+        document.onkeypress = forbidBackSpace;
+        //禁止后退键  作用于IE、Chrome
+        document.onkeydown = forbidBackSpace;
+
+    </script>
+
+</head>
+<body marginwidth="0" style="">
+    <header class="mainTop">
+        <div class="mainLogo">
+            <img src="./南京大学1.png" height="38px" width="398px" alt="网上自助报账平台" title="网上自助报账平台，点击此处可返回导航页~试试哦~" onclick="parent.frames[&#39;mainframe&#39;].location.href=&#39;frame_main.aspx&#39;">
+        </div>
+        <div class="menu" style="display: none;">
+            <ul>
+                <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#" class="hide">MENUS</a>
+                    <ul>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">我的项目</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">日常报销</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">差旅费报销</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">借款报销</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">版面费报销</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">jigsaw links</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#">circular links</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <form name="Form1" method="post" action="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx" id="Form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTgzOTAzMjQ0OA9kFgICAQ9kFgICAw9kFgJmD2QWDAIBDxYCHgdWaXNpYmxlaGQCAw8PFgIeBFRleHQFBuabueaYpWRkAgUPEA8WBh4ORGF0YVZhbHVlRmllbGQFBHl3bHgeDURhdGFUZXh0RmllbGQFBnl3bHhtYx4LXyFEYXRhQm91bmRnZBAVDRLluLjnlKjlip/og73pgInmi6kP5Yqf6IO95a+86Iiq6aG1DOaIkeeahOmhueebrgzmiJHnmoTnpajlpLkJ5YWs5Yqh5Y2hDOaXpeW4uOaKpemUgA/lm73lhoXlt67ml4XotLkG5YCf5qy+DOmhueebrui9rOi0pgzotYTkuqfmiqXplIAP54mI6Z2i6LS55oql6ZSACeemj+WIqei0uRLlrabnlJ/pgIDotLnmiqXplIAVDQEwAjAwAjAxAjAyAjA4AjA1AjA2AjAzAjA5AjE3AjIyAjI1AjI0FCsDDWdnZ2dnZ2dnZ2dnZ2cWAWZkAgcPZBYCZg8PFgIfAQUdW+aTjeS9nOaMh+WNl+WPiuW4uOingemXrumimF1kZAILDxYCHwBnZAIPDxYCHwBoZGQi4IRYkwlfbaH/bwifBypC+sZDOR5g5Ykq+esjLYVGRw==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="./ScriptResource(1).axd" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="21C8D667">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA+67t0aIMjEdtfv+hlqFNlMo9XFxWSbRKd40KHjVF7qYmeqOy4sI3TXmlWReKjfmot/edd/umw+R4Rb+BQYzk2IOkri4kLKsBjhJ+ox0ImWpNY+RvRIyJMFfnh26ba2WZ0Z9PN5Ey+I2i041/xDR/sBqmV+YAy9dDzZlSQ81x8zyaKmDVYmW/9Sjt/kogOitb+QtnxH6hE1RGtuUtjiGQXCiY0aRx3MFNBW0ldHETYhetT25t3BIHw1C5T5lqTHuyxrxRAfak+ox9eAWM/fZATDCmqhRoNwOr4sLmVbhGPju2yAuR91oyfaJRZfp81YEX5Xg2TejwwzxJfTSbzzI3eQWVCtovj0SOVg7JYTyAIU4g==">
+</div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'Form1', ['tUp_Normal',''], [], [], 90, '');
+//]]>
+</script>
+
+            <div id="Up_Normal">
+	
+                    <div class="mainUser">
+                        <ul>
+                            
+                            <li style="margin-right: 8px;">欢迎您：<span id="Lbl_Name">张三</span>
+                            </li>
+                            <li>
+                                <div class="select">
+                                    <select name="DD_CYMENU" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;DD_CYMENU\&#39;,\&#39;\&#39;)&#39;, 0)" id="DD_CYMENU">
+		<option selected="selected" value="0">常用功能选择</option>
+		<option value="00">功能导航页</option>
+		<option value="01">我的项目</option>
+		<option value="02">我的票夹</option>
+		<option value="08">公务卡</option>
+		<option value="05">日常报销</option>
+		<option value="06">国内差旅费</option>
+		<option value="03">借款</option>
+		<option value="09">项目转账</option>
+		<option value="17">资产报销</option>
+		<option value="22">版面费报销</option>
+		<option value="25">福利费</option>
+		<option value="24">学生退费报销</option>
+
+	</select>
+                                </div>
+                            </li>
+                            <li>
+                                <a onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;Modules/Sy/Zdcx.aspx&quot;" href="http://ndcw.nju.edu.cn:81/wsyy/frame_top2.aspx#" visible="true">
+                                    <img src="./yw.png" alt=""><span id="span_zd"><span id="LBL_ZDMC">[操作指南及常见问题]</span>
+                                    </span></a>
+                            </li>
+                            
+
+                            <li id="l_cylxr">
+                                <a id="HL_CYLXR" href="http://ndcw.nju.edu.cn:81/wsyy/Modules/Wdxm/CYLXR.aspx" target="_blank">常用联系人</a>
+                            </li>
+
+                            
+
+                            
+
+                            <li>
+                                <a onclick="LOGINOUT();" href="javascript:void(0);" title="退出">
+                                    <img src="./tcHeader.png" alt="">退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                
+</div>
+        </form>
+    </header>
+
+
+</body></html>

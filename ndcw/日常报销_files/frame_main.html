@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0060)http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./gridview.css" type="text/css" rel="stylesheet"><title>
+
+</title><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><link id="ctl00_css_style" rel="stylesheet" type="text/css" href="./style.css"><link id="ctl00_menu_style" rel="stylesheet" type="text/css" href="./menu.css"><link rel="stylesheet" type="text/css" href="./loadingnew.css">
+    <script type="text/javascript">
+        //document.oncontextmenu = new Function("event.returnValue=false;");//禁止右键
+        //document.onselectstart = new Function("event.returnValue=false;");//网页禁止全选
+        var hkey_root, hkey_path, hkey_key;
+        hkey_root = "HKEY_CURRENT_USER";
+        hkey_path = "\\Software\\Microsoft\\Internet Explorer \\PageSetup\\";
+        //设置网页打印的页眉页脚为空   
+        function pagesetup_null() {
+            try {
+                var RegWsh = new ActiveXObject("WScript.Shell");
+                hkey_key = "header";
+                alert('2');
+                RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+                hkey_key = "footer";
+                RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+                alert('4');
+            } catch (e) { }
+        }
+        function noCopy() {
+            alert("禁止使用Ctrl+C进行复制操作!");
+            event.returnValue = false;
+        }
+
+    </script>
+    <script type="text/javascript">
+        //处理键盘事件 禁止后退键（Backspace）密码或单行、多行文本框除外
+        function forbidBackSpace(e) {
+            var ev = e || window.event; //获取event对象 
+            var obj = ev.target || ev.srcElement; //获取事件源 
+            var t = obj.type || obj.getAttribute('type'); //获取事件源类型 
+            //获取作为判断条件的事件类型 
+            var vReadOnly = obj.readOnly;
+            var vDisabled = obj.disabled;
+            //处理undefined值情况 
+            vReadOnly = (vReadOnly == undefined) ? false : vReadOnly;
+            vDisabled = (vDisabled == undefined) ? true : vDisabled;
+            //当敲Backspace键时，事件源类型为密码或单行、多行文本的， 
+            //并且readOnly属性为true或disabled属性为true的，则退格键失效 
+            var flag1 = ev.keyCode == 8 && (t == "password" || t == "text" || t == "textarea") && (vReadOnly == true || vDisabled == true);
+            //当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效 
+            var flag2 = ev.keyCode == 8 && t != "password" && t != "text" && t != "textarea";
+            //判断 
+            if (flag2 || flag1) return false;
+
+        }
+        //禁止后退键 作用于Firefox、Opera
+        document.onkeypress = forbidBackSpace;
+        //禁止后退键  作用于IE、Chrome
+        document.onkeydown = forbidBackSpace;
+
+        //禁止右键
+        //document.oncontextmenu = function () {
+        //    //alert("小样不给你看");
+        //    return false;
+        //}
+
+
+        function showFloatJZ()       //根据屏幕的大小显示两个层 
+        {
+            //var range = getRange();
+            document.getElementById("doing").style.width = document.body.scrollWidth + "px";
+            document.getElementById("doing").style.height = document.body.scrollHeight + "px";
+            document.getElementById("doing").style.display = "block";
+            document.getElementById("POP_JZ").style.display = "block";
+        }
+
+        function closeFloatJZ()                    //根据屏幕的大小显示两个层 
+        {
+            document.getElementById("doing").style.display = "none";
+            try {
+                document.getElementById("POP_JZ").style.display = "none";
+            }
+            catch (err) { }
+
+            try {
+                document.getElementById("POP_JHJZ").style.display = "none";
+            }
+            catch (err) { }
+
+            try {
+                document.getElementById("POP_ZNFXJZ").style.display = "none";
+            }
+            catch (err) { }
+
+        }
+
+        function showFloatJHJZ()                    //根据屏幕的大小显示两个层 
+        {
+            document.getElementById("doing").style.width = document.body.scrollWidth + "px";
+            document.getElementById("doing").style.height = document.body.scrollHeight + "px";
+            document.getElementById("doing").style.display = "block";
+
+            try {
+                document.getElementById("POP_JZ").style.display = "none";
+            }
+            catch (err) { }
+
+            try {
+                document.getElementById("POP_JHJZ").style.display = "block";
+            }
+            catch (err) { }
+
+        }
+
+
+        function showFloatZNFXJZ()                    //根据屏幕的大小显示两个层 
+        {
+            document.getElementById("doing").style.width = document.body.scrollWidth + "px";
+            document.getElementById("doing").style.height = document.body.scrollHeight + "px";
+            document.getElementById("doing").style.display = "block";
+
+            try {
+                document.getElementById("POP_JZ").style.display = "none";
+            }
+            catch (err) { }
+
+            try {
+                document.getElementById("POP_JHJZ").style.display = "none";
+            }
+            catch (err) { }
+
+            try {
+                document.getElementById("POP_ZNFXJZ").style.display = "block";
+            }
+            catch (err) { }
+
+        }
+
+
+        // 监听全局键盘事件
+        document.addEventListener('keydown', function (e) {
+            // 判断是否按下回车键（排除在textarea中回车，避免影响换行）
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault(); // 阻止回车的默认行为（如表单提交）
+
+                // 模拟Tab键的焦点切换
+                // 获取当前页面所有可聚焦元素
+                const focusableElements = document.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                const currentIndex = Array.from(focusableElements).indexOf(document.activeElement);
+                const nextIndex = (currentIndex + 1) % focusableElements.length; // 循环聚焦
+
+                // 聚焦到下一个元素
+                focusableElements[nextIndex].focus();
+            }
+        });
+
+    </script>
+    
+    <link href="./layer.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        document.onkeydown = function () {
+            if (event.keyCode == 13) { event.keyCode = 9; }
+        }
+
+        //处理键盘事件 禁止后退键（Backspace）密码或单行、多行文本框除外
+        function forbidBackSpace(e) {
+            var ev = e || window.event; //获取event对象 
+            var obj = ev.target || ev.srcElement; //获取事件源 
+            var t = obj.type || obj.getAttribute('type'); //获取事件源类型 
+            //获取作为判断条件的事件类型 
+            var vReadOnly = obj.readOnly;
+            var vDisabled = obj.disabled;
+            //处理undefined值情况 
+            vReadOnly = (vReadOnly == undefined) ? false : vReadOnly;
+            vDisabled = (vDisabled == undefined) ? true : vDisabled;
+            //当敲Backspace键时，事件源类型为密码或单行、多行文本的， 
+            //并且readOnly属性为true或disabled属性为true的，则退格键失效 
+            var flag1 = ev.keyCode == 8 && (t == "password" || t == "text" || t == "textarea") && (vReadOnly == true || vDisabled == true);
+            //当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效 
+            var flag2 = ev.keyCode == 8 && t != "password" && t != "text" && t != "textarea";
+            //判断 
+            if (flag2 || flag1) return false;
+        }
+        //禁止后退键 作用于Firefox、Opera
+        document.onkeypress = forbidBackSpace;
+        //禁止后退键  作用于IE、Chrome
+        document.onkeydown = forbidBackSpace;
+    </script>
+    <link rel="stylesheet" type="text/css" href="./base.css">
+
+    <script type="text/javascript">
+
+
+        function $(id) {
+            return (document.getElementById) ? document.getElementById(id) : document.all[id];
+        }
+
+        function getRange()                      //得到屏幕的大小 
+        {
+            var top = document.body.scrollTop;
+            var left = document.body.scrollLeft;
+            var height = document.body.scrollHeight;
+            var width = document.body.clientWidth;
+
+            if (top == 0 && left == 0 && height == 0 && width == 0) {
+                top = document.documentElement.scrollTop;
+                left = document.documentElement.scrollLeft;
+                height = document.documentElement.scrollHeight;
+                width = document.documentElement.clientWidth;
+            }
+            return { top: top, left: left, height: height, width: width };
+        }
+
+        function show() {
+            document.getElementById("more").style.display = "block";
+            document.getElementById('btn').innerHTML = "模块报销要求说明【收起】-";
+            document.getElementById('btn').href = "javascript:hide();";
+        }
+
+        function hide() {
+            document.getElementById('more').style.display = 'none';
+            document.getElementById('btn').innerHTML = "模块报销要求说明【展开】+";
+            document.getElementById('btn').href = "javascript:show();";
+        }
+
+        function showCZSM() {
+            document.getElementById("tr_czsm").style.display = "block";
+            document.getElementById('btn_czsm').innerHTML = "操作说明【收起】-";
+            document.getElementById('btn_czsm').href = "javascript:hideCZSM();";
+        }
+
+        function hideCZSM() {
+            document.getElementById('tr_czsm').style.display = 'none';
+            document.getElementById('btn_czsm').innerHTML = "操作说明【展开】+";
+            document.getElementById('btn_czsm').href = "javascript:showCZSM();";
+        }
+    </script>
+</head>
+<body style="background-color: #f0f2f5;" marginwidth="0" marginheight="0">
+    <form name="aspnetForm" method="post" action="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="./ScriptResource(1).axd" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="55748F17">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="EStX+lZkCu9RYfoM7lv2hSQm2JNSpFyDC9AU2mI3wtpvuDmHbefa2CzCErAi3BHxxUnwSghlk3Zu/klHbFEBj+V8dv6v1j9G/+Jof4APsit9AGzumP3FFmeb6Ft29rFgndqS5jjviAd0PorfVKM0kHw1HrGwKVOdmToKqbDHxNAMwe9YT/ee4DRaGESBQ7iPoEWwTTgy3cFiD9JRJU/SZe+wdh2Bo4Aej93C/GR2ywpa/kj7KMCVva6Y+FLQokXdZh+r1VVTB3/j8N+38MuxDcbEmjm1tJ7O2LtnZ1t25ek=">
+</div>
+        <div id="doing" style="filter: alpha(opacity=30); -moz-opacity: 0.3; opacity: 0.3; background-color: #000; width: 100%; height: 300%; z-index: 1000; position: absolute; left: 0; top: 0; display: none; overflow: hidden;">
+        </div>
+        
+        <div id="POP_JZ" style="margin-top: 10%; display: none; position: fixed; background-color: whitesmoke; z-index: 1001; width: 100%;">
+            
+            <div class="loadingNew">
+                <span>加载中，请稍候.....</span>
+            </div>
+        </div>
+
+
+        <div id="POP_JHJZ" style="margin-top: 10%; display: none; position: fixed; background-color: whitesmoke; z-index: 1001; width: 100%;">
+            <div class="loadingNew">
+                <span>稽核中，请稍候.....</span>
+            </div>
+        </div>
+
+
+        <div id="POP_ZNFXJZ" style="margin-top: 10%; display: none; position: fixed; background-color: whitesmoke; z-index: 1002; width: 100%;">
+            <div class="loadingNew">
+                <span>智能分析中，请稍候...</span>
+            </div>
+        </div>
+
+        <div class="menu" style="float: right; display: block; margin-top: 10px;">
+            <ul>
+                <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" class="hide">快捷跳转</a>
+                    <ul>
+                        
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx&quot;">我的项目</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=0&quot;">待修改业务</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=1&quot;">待提交业务</a></li>
+                        <li id="ctl00_LI_SP"><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=8&quot;">待提交审批（线上）</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=5&quot;">已提交业务</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=3&quot;">已完成业务</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=4&quot;">失败业务</a></li>
+                        <li><a href="http://ndcw.nju.edu.cn:81/wsyy/Modules/YZSBX/ZFKBX_ADD3.aspx#" onclick="parent.frames[&quot;mainframe&quot;].showFloatJZ();parent.frames[&quot;mainframe&quot;].location.href=&quot;../Wdxm/Wdxm.aspx?kd=6&quot;">未还暂付款信息</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="container">
+            
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    <div class="tips">
+        <ul>
+            <li>当前位置：</li>
+            <li id="home"><a href="http://ndcw.nju.edu.cn:81/wsyy/frame_main.aspx" onclick="showFloatJZ();">返回功能导航页</a></li>
+            <li>&gt;</li>
+            <li>日常报销</li>
+        </ul>
+    </div>
+    <div id="main">
+
+        <div id="ctl00_ContentPlaceHolder1_Div_Normal" style="display: block; margin: 0px;">
+            
+            <table width="100%">
+                <tbody><tr style="display: none;">
+                    <td colspan="2"><a href="javascript:hideCZSM();" id="btn_czsm" class="btn">操作说明【收起】-</a></td>
+                </tr>
+                <tr id="tr_czsm">
+                    <td style="border-style: none;" colspan="1" valign="top">
+                        <img id="ctl00_ContentPlaceHolder1_im_czsm" src="./czsm.jpg" style="border-width:0px;">
+                    </td>
+                    <td style="border-style: none; font-size: 15px;">
+                        <font style="font-weight: bold; color: #3488de;">日常报销模块</font>&nbsp; &nbsp;在<font style="font-weight: bold; color: #3488de;">【未提交单据】</font>显示的是您填过未提交的报销单，可以通过<font style="font-weight: bold; color: #3488de;">【修改】、【删除】</font>对原单据进行继续操作；<font style="font-weight: bold; color: #3488de;">【新业务填报】</font>按钮跳转到填报页面；跳转到填报页面后，您可以通过两种方式进行项目的选择，<font style="font-weight: bold; color: #3488de;">一</font>：直接输入部门号和项目号，系统会匹配出相应的部门项目信息；<font style="font-weight: bold; color: #3488de;">二</font>：您可以点击页面中的<img id="ctl00_ContentPlaceHolder1_Img_Help" src="./js3.png" style="height:16px;width:16px;border-width:0px;">，选择项目进行填报；再根据按钮提示进行内容填报；点击<font style="font-weight: bold; color: #3488de;">【下一步（支付方式）】</font>进入支付方式填写页面。按提示一步一步进行下去，直至确认提交打印出报销单。
+                                                                               
+                    </td>
+                </tr>
+                
+            </tbody></table>
+            
+            <table width="100%">
+                <tbody><tr>
+                    <td style="border: 0px;">
+                        
+                        <font style="font-weight: bold; font-size: 15px;">报销业务编号：
+                                            <span id="ctl00_ContentPlaceHolder1_Lbl_Ywbh" title="业务编号" style="color:Green;">YB000000000000</span>
+                        </font>
+                    </td>
+                    <td style="border: 0px" align="right">
+                        <input type="button" value="新业务填报" class="button" onclick="window.top.location.href='../日常报销项目选择或录入.html';">
+
+                        <input type="button" value="返回导航页" class="button" onclick="window.top.location.href='../系统功能模块.html';">
+
+                    </td>
+                </tr>
+            </tbody></table>
+
+
+            <div class="div_pj" style="margin-top: -5px;">
+                <h5>【未提交单据】</h5>
+            </div>
+            <div id="ctl00_ContentPlaceHolder1_div_wbxdj" style="background: #fff; overflow-y: scroll; border: none;">
+                <div>
+
+</div>
+                <h2>
+                    
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; border: none;" id="page_table">
+    <tbody><tr>
+        <td style="border: none; width: 220px; text-align: left; vertical-align: text-top; padding-top: 5px">&nbsp;<span id="ctl00_ContentPlaceHolder1_Page_GV_XG_Label6">总共</span>&nbsp;
+           
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_itemCount">0</span>&nbsp;
+           
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_Label8">条记录</span>&nbsp;
+        </td>
+        <td style="border: none; width: 100px; text-align: left; vertical-align: text-top; padding-top: 5px">
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_Label3">总共 </span>&nbsp;
+           
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_pageCount">1</span>
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_Label7">页</span>&nbsp;
+        </td>
+        <td style="border: none; width: 120px; text-align: left; vertical-align: text-top; padding-top: 5px">
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_Label2">第</span>&nbsp;
+           
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_currentPageNum">1</span>
+            <span id="ctl00_ContentPlaceHolder1_Page_GV_XG_Label10">页</span>&nbsp;
+        </td>
+        <td style="border: none;">
+            <div style="float: right; margin-right: 10px;">
+                <span style="float: left; margin-top: 2px;">
+                    
+                    <input name="ctl00$ContentPlaceHolder1$Page_GV_XG$PageIndex" type="text" value="1" id="ctl00_ContentPlaceHolder1_Page_GV_XG_PageIndex" style="width:30px;text-align: center">
+                    <input type="submit" name="ctl00$ContentPlaceHolder1$Page_GV_XG$btnGO" value=" 跳 转 " id="ctl00_ContentPlaceHolder1_Page_GV_XG_btnGO">&nbsp;
+                    
+                </span><span style="float: right; margin-top: 2px; margin-right: 30px;">
+                        <input type="image" name="ctl00$ContentPlaceHolder1$Page_GV_XG$LBFrist" id="ctl00_ContentPlaceHolder1_Page_GV_XG_LBFrist" title="最首页" src="./top.png" style="border-width:0px;">&nbsp;                     
+                        <input type="image" name="ctl00$ContentPlaceHolder1$Page_GV_XG$LBPriv" id="ctl00_ContentPlaceHolder1_Page_GV_XG_LBPriv" title="前一页" src="./begio.png" style="border-width:0px;">&nbsp;
+                        <input type="image" name="ctl00$ContentPlaceHolder1$Page_GV_XG$LBNext" id="ctl00_ContentPlaceHolder1_Page_GV_XG_LBNext" title="后一页" src="./next.png" style="border-width:0px;">&nbsp;
+                        <input type="image" name="ctl00$ContentPlaceHolder1$Page_GV_XG$LBEnd" id="ctl00_ContentPlaceHolder1_Page_GV_XG_LBEnd" title="最后页" src="./last.png" style="border-width:0px;">
+                    </span>
+            </div>
+        </td>
+    </tr>
+</tbody></table>
+
+                </h2>
+            </div>
+            <br>
+
+
+        </div>
+
+    </div>
+
+
+        </div>
+    </form>
+
+
+</body></html>

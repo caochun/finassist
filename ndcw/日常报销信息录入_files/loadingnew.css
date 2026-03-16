@@ -1,0 +1,72 @@
+﻿body {
+}
+
+.loadingNew {
+    width: 180px;
+    height: 180px;
+    /* background: red; */
+    /* 并排放置两个带边框的框，令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中 */
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-top: 10px solid #FF9900;
+    position: fixed;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 40%;
+    left: 46%;
+    /* 动画 */
+    animation: a1 2s linear infinite;
+}
+
+    /* before和after在元素前面和后面添加内容 */
+    .loadingNew::before,
+    .loadingNew::after {
+        content: '';
+        width: 180px;
+        height: 180px;
+        /* background: red; */
+        position: absolute;
+        left: 0;
+        top: -10px;
+        /* 形成另外两个颜色弧 */
+        box-sizing: border-box;
+        border-radius: 50%;
+    }
+
+    .loadingNew::before {
+        border-top: 10px solid #FF99CC;
+        transform: rotate(120deg);
+    }
+
+    .loadingNew::after {
+        border-top: 10px solid #CCFF99;
+        transform: rotate(240deg);
+    }
+
+    /* 文字 */
+    .loadingNew span {
+        position:relative;
+        height: 100px;
+        width: 230px;
+        /* 文字居中 */
+        text-align: center;
+        line-height: 100px;
+        color: white;
+        font-size: 18px;
+        /* 动画 */
+        animation: a2 2s linear infinite;
+    }
+
+@keyframes a1 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes a2 {
+    to {
+        transform: rotate(-360deg);
+    }
+}

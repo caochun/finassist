@@ -1,0 +1,92 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot?-rdnm34');
+	src:url('../fonts/icomoon/icomoon.eot?#iefix-rdnm34') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.woff?-rdnm34') format('woff'),
+		url('../fonts/icomoon/icomoon.ttf?-rdnm34') format('truetype'),
+		url('../fonts/icomoon/icomoon.svg?-rdnm34#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+div.cs-skin-border {
+	background: transparent;
+	/* font-size: 2em;
+	font-weight: 700; */
+}
+
+@media screen and (max-width: 30em) {
+	div.cs-skin-border { font-size: 1em; }
+}
+
+.cs-skin-border > span {
+	width: 300px;
+	border: 1px solid #dadada;
+	/* border-color: inherit; */
+	-webkit-transition: background 0.2s, border-color 0.2s;
+	transition: background 0.2s, border-color 0.2s;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 1em;
+}
+
+.cs-skin-border > span::after,
+.cs-skin-border .cs-selected span::after {
+	font-family: 'icomoon';
+	content: '\e000';
+}
+
+.cs-skin-border ul span::after {
+	content: '';
+	opacity: 0;
+}
+
+.cs-skin-border .cs-selected span::after {
+	content: '\e00e';
+	color: #195fad;
+	font-size: 2em;
+	opacity: 1;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.cs-skin-border.cs-active > span {
+	/* background: #fff;
+	border-color: #fff; */
+	color: #195fad;
+	border: 1px solid #195fad;
+}
+
+.cs-skin-border .cs-options {
+	/* color: #2980b9; */
+	font-size: 0.75em;
+	/* opacity: 0; */
+	display: none;
+	-webkit-transition: opacity 0.2s, visibility 0s 0.2s;
+	transition: opacity 0.2s, visibility 0s 0.2s;
+}
+
+.cs-skin-border.cs-active .cs-options {
+	/* opacity: 1; */
+	display: block;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+	z-index: 100;
+}
+
+.cs-skin-border ul span {
+	padding: 0.5em 1.5em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	font-size: 0.25rem;
+}
+
+.cs-skin-border .cs-options li span:hover,
+.cs-skin-border li.cs-focus span {
+	background: #195fad;
+	color: #ffffff;
+}
+.cs-options {
+	margin-top: 0.1rem!important;
+}

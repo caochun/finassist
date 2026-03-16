@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0051)http://ndcw.nju.edu.cn:81/wsyy/frame_container.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        南京大学网上自助报账系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    
+    <script type="text/javascript">
+
+        //function get_cookie(Name) {
+        //    var search = Name + "="
+        //    var returnvalue = "";
+        //    if (document.cookie.length > 0) {
+        //        offset = document.cookie.indexOf(search)
+        //        if (offset != -1) {
+        //            offset += search.length
+        //            end = document.cookie.indexOf(";", offset);
+        //            if (end == -1)
+        //                end = document.cookie.length;
+        //            returnvalue = unescape(document.cookie.substring(offset, end))
+        //        }
+        //    }
+        //    return returnvalue;
+        //}
+
+        //处理键盘事件 禁止后退键（Backspace）密码或单行、多行文本框除外
+        function forbidBackSpace(e) {
+            var ev = e || window.event; //获取event对象 
+            var obj = ev.target || ev.srcElement; //获取事件源 
+            var t = obj.type || obj.getAttribute('type'); //获取事件源类型 
+            //获取作为判断条件的事件类型 
+            var vReadOnly = obj.readOnly;
+            var vDisabled = obj.disabled;
+            //处理undefined值情况 
+            vReadOnly = (vReadOnly == undefined) ? false : vReadOnly;
+            vDisabled = (vDisabled == undefined) ? true : vDisabled;
+            //当敲Backspace键时，事件源类型为密码或单行、多行文本的， 
+            //并且readOnly属性为true或disabled属性为true的，则退格键失效 
+            var flag1 = ev.keyCode == 8 && (t == "password" || t == "text" || t == "textarea") && (vReadOnly == true || vDisabled == true);
+            //当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效 
+            var flag2 = ev.keyCode == 8 && t != "password" && t != "text" && t != "textarea";
+            //判断 
+            if (flag2 || flag1) return false;
+        }
+        //禁止后退键 作用于Firefox、Opera
+        document.onkeypress = forbidBackSpace;
+        //禁止后退键  作用于IE、Chrome
+        document.onkeydown = forbidBackSpace;
+
+    </script>
+
+    <link rel="stylesheet" href="./日常报销信息录入_files/reset.css">
+    <link rel="stylesheet" type="text/css" href="./日常报销信息录入_files/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./日常报销信息录入_files/cs-select.css">
+    <link rel="stylesheet" type="text/css" href="./日常报销信息录入_files/cs-skin-border.css">
+</head>
+<frameset rows="60,*,46" frameborder="no" border="0" framespacing="0" width="100%">
+    <frame name="topFrame" marginwidth="0" src="./日常报销信息录入_files/frame_top2.html" frameborder="no" scrolling="no" z-index="4">
+    <frame name="mainframe" marginheight="0" marginwidth="0" src="./日常报销信息录入_files/frame_main.html" scrolling="yes" frameborder="no">
+    <frame name="bottomFrame" marginheight="0" marginwidth="0" src="./日常报销信息录入_files/frame_bom.html" scrolling="yes" frameborder="no">
+</frameset>
+
+
+</html>

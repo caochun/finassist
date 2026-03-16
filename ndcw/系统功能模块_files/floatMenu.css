@@ -1,0 +1,35 @@
+﻿@charset "utf-8";
+/* 浮动导航栏 Begin */
+#floatMenu {
+    padding-top: 5px;
+    background: url(../images/bg1.png) repeat;
+    border: 1px solid #dcdcdc;
+    position: fixed;
+    top: 250px;
+    left: 5px;
+    margin-left: 0px;
+    width: 150px;
+}
+
+    #floatMenu ul {
+        margin-left: 0px;
+        background-color: White;
+        list-style-type: none;
+        padding: 10px;
+    }
+
+        #floatMenu ul li a {
+            display: block;
+            text-decoration: none;
+            color: #000;
+        }
+
+            #floatMenu ul li a:hover {
+                color: #fff;
+                background-color: #ff8000;
+            }
+
+        #floatMenu ul.menu1 li a:hover {
+            border-color: #09f;
+        }
+/* 浮动导航栏 End */
