@@ -1,0 +1,557 @@
+.datatable {
+    border-bottom-style: none;
+    width: 100%;
+    background-color: White;
+    word-break: break-all;
+}
+
+    .datatable .header TH {
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid #E5E5E5;
+        height: 30px;
+        line-height: 30px;
+        font-weight: 700;
+        padding: 3px;
+    }
+
+    .datatable .header TD {
+        padding-right: 4px;
+        white-space: nowrap;
+        text-align: center;
+        border: 0px solid #EAEAEA;
+    }
+
+input[type=checkbox] {
+    zoom: 1.5;
+}
+
+
+
+
+.datatable .row TD {
+    /*white-space: nowrap;*/
+}
+
+.datatable .row:hover {
+    background-color: silver;
+    color: #000;
+}
+
+.datatable .row {
+    border-bottom: 0px solid #000000;
+}
+
+    .datatable .row TD {
+        border: 1px solid #E5E5E5;
+        height: 24px;
+        line-height: 24px;
+        word-break: break-all;
+        padding: 3px;
+    }
+
+.datatable .pager {
+    border-bottom-style: none;
+}
+
+.datatable .row .red {
+    color: #FF0000;
+}
+
+
+.datatable_part {
+    border-bottom-style: none;
+}
+
+    .datatable_part .header TH {
+        padding-right: 4px;
+        white-space: nowrap;
+    }
+
+    .datatable_part .row TD {
+        white-space: nowrap;
+    }
+
+    .datatable_part .row {
+        border-bottom: 1px solid #000000;
+    }
+
+        .datatable_part .row TD {
+            border: 1px solid #000000;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+        }
+
+    .datatable_part .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable_part .row .red {
+        color: #FF0000;
+    }
+
+
+.datatable12 {
+    border-bottom-style: none;
+    width: 100%;
+}
+
+    .datatable12 .header TH {
+        padding-right: 4px;
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid #458AEF;
+    }
+
+    .datatable12 .header TD {
+        padding-right: 4px;
+        white-space: nowrap;
+        text-align: center;
+        border: 0px solid #458AEF;
+    }
+
+    .datatable12 .row TD {
+        white-space: nowrap;
+    }
+
+    .datatable12 .row:hover {
+        background-color: #fef8bc;
+        color: #000;
+    }
+
+    .datatable12 .row {
+        border-bottom: 0px solid #458AEF;
+    }
+
+        .datatable12 .row TD {
+            border: 1px solid #458AEF;
+            height: 24px;
+            line-height: 24px;
+        }
+
+    .datatable12 .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable12 .row .red {
+        color: #FF0000;
+    }
+
+
+.datatable12_part {
+    border-bottom-style: none;
+}
+
+    .datatable12_part .header TH {
+        padding-right: 4px;
+        white-space: nowrap;
+    }
+
+    .datatable12_part .row TD {
+        white-space: nowrap;
+    }
+
+    .datatable12_part .row {
+        border-bottom: 1px solid #458AEF;
+    }
+
+        .datatable12_part .row TD {
+            border: 1px solid #458AEF;
+            height: 24px;
+            line-height: 24px;
+        }
+
+    .datatable12_part .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable12_part .row .red {
+        color: #FF0000;
+    }
+
+
+.Freezing {
+    position: relative;
+    table-layout: fixed;
+    z-index: 10;
+}
+
+    .Freezing th {
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 2px;
+    }
+
+.datatable .row .ZH {
+    white-space: normal;
+    width: 200px;
+    border: none;
+}
+
+.datatable .row .ZH600 {
+    white-space: normal;
+    width: 600px;
+}
+
+.datatable .row .ZH200 {
+    white-space: normal;
+    width: 200px;
+}
+
+.datatable .row .ZH300 {
+    white-space: normal;
+    width: 300px;
+}
+
+
+
+
+.headerDj TH {
+    /*padding-right: 4px;*/
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid #EAEAEA;
+    background-image: url(../../images/gv_head.png);
+    color: #1f73b9;
+}
+
+.headerDj TD {
+    border: 1px solid #EAEAEA;
+    height: 24px;
+    line-height: 24px;
+    word-break: break-all;
+}
+
+
+
+.txtInput {
+    height: 25px; /*设置行高是为了解决Safari和Chrome下的高度问题*/
+    line-height: 25px; /*让文字居中显示*/
+    border: 1px solid #cccccc;
+    margin: 0;
+    overflow: visible; /*只有设置这个属性IE下padding才能生效*/
+    width: 200px; /*现代浏览器下识别*/
+    *width: 0; /*IE7和IE6识别，设置值为1,但有些人此处设置值为0*/
+}
+
+
+
+
+.div_pj {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+    .div_pj h5 {
+        border-bottom: 2px solid #e4e4e4;
+        font-size: 18px;
+        font-weight: 700;
+        border-left: 3px solid #1485d2;
+        text-indent: 5px;
+        margin: 15px 0px 10px 0px;
+    }
+
+
+
+
+
+.datatable15 {
+    border-bottom-style: none;
+    width: 100%;
+    background-color: White;
+    word-break: break-all;
+}
+
+    .datatable15 .header TH {
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid #E5E5E5;
+        height: 25px;
+        line-height: 25px;
+        padding: 3px;
+    }
+
+    .datatable15 .header TD {
+        padding-right: 4px;
+        white-space: nowrap;
+        text-align: center;
+        border: 0px solid #EAEAEA;
+    }
+
+
+    .datatable15 .row:hover {
+        background-color: silver;
+        color: #000;
+    }
+
+    .datatable15 .row {
+        border-bottom: 0px solid #000000;
+    }
+
+        .datatable15 .row TD {
+            border: 1px solid #E5E5E5;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+            padding: 3px;
+        }
+
+    .datatable15 .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable15 .row .red {
+        color: #FF0000;
+    }
+
+
+.datatable15_part {
+    border-bottom-style: none;
+}
+
+    .datatable15_part .header TH {
+        padding-right: 4px;
+        white-space: nowrap;
+    }
+
+    .datatable15_part .row TD {
+        white-space: nowrap;
+    }
+
+    .datatable15_part .row {
+        border-bottom: 1px solid #000000;
+    }
+
+        .datatable15_part .row TD {
+            border: 1px solid #000000;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+        }
+
+    .datatable15_part .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable15_part .row .red {
+        color: #FF0000;
+    }
+
+
+
+
+
+.datatable18 {
+    border-bottom-style: none;
+    width: 100%;
+    background-color: White;
+    word-break: break-all;
+    margin-left: 0px;
+}
+
+    .datatable18 .header TH {
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid #E5E5E5;
+        height: 25px;
+        line-height: 25px;
+        padding: 3px;
+    }
+
+    .datatable18 .header TD {
+        padding-right: 4px;
+        white-space: nowrap;
+        text-align: center;
+        border: 0px solid #EAEAEA;
+    }
+
+
+    .datatable18 .row:hover {
+        background-color: silver;
+        color: #000;
+    }
+
+    .datatable18 .row {
+        border-bottom: 0px solid #000000;
+    }
+
+        .datatable18 .row TD {
+            border: 1px solid #E5E5E5;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+            padding: 3px;
+        }
+
+    .datatable18 .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable18 .row .red {
+        color: #FF0000;
+    }
+
+
+.datatable18_part {
+    border-bottom-style: none;
+}
+
+    .datatable18_part .header TH {
+        padding-right: 4px;
+        white-space: nowrap;
+    }
+
+    .datatable18_part .row TD {
+        white-space: nowrap;
+    }
+
+    .datatable18_part .row {
+        border-bottom: 1px solid #000000;
+    }
+
+        .datatable18_part .row TD {
+            border: 1px solid #000000;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+        }
+
+    .datatable18_part .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable18_part .row .red {
+        color: #FF0000;
+    }
+
+
+
+
+.datatable18 {
+    border-bottom-style: none;
+    width: 100%;
+    background-color: White;
+    word-break: break-all;
+    margin-left: 0px;
+}
+
+    .datatable18 .header TH {
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid #E5E5E5;
+        height: 25px;
+        line-height: 25px;
+        padding: 3px;
+    }
+
+    .datatable18 .header TD {
+        padding-right: 4px;
+        white-space: nowrap;
+        text-align: center;
+        border: 0px solid #EAEAEA;
+    }
+
+
+    .datatable18 .row:hover {
+        background-color: silver;
+        color: #000;
+    }
+
+    .datatable18 .row {
+        border-bottom: 0px solid #000000;
+    }
+
+        .datatable18 .row TD {
+            border: 1px solid #E5E5E5;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+            padding: 3px;
+        }
+
+    .datatable18 .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable18 .row .red {
+        color: #FF0000;
+    }
+
+
+.datatable18_part {
+    border-bottom-style: none;
+}
+
+    .datatable18_part .header TH {
+        padding-right: 4px;
+        white-space: nowrap;
+    }
+
+    .datatable18_part .row TD {
+        white-space: nowrap;
+    }
+
+    .datatable18_part .row {
+        border-bottom: 1px solid #000000;
+    }
+
+        .datatable18_part .row TD {
+            border: 1px solid #000000;
+            height: 24px;
+            line-height: 24px;
+            word-break: break-all;
+        }
+
+    .datatable18_part .pager {
+        border-bottom-style: none;
+    }
+
+    .datatable18_part .row .red {
+        color: #FF0000;
+    }
+
+
+
+
+
+
+.datatableDY .header TH {
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid #E5E5E5;
+    height: 25px;
+}
+
+.datatableDY .header TD {
+    padding-right: 4px;
+    white-space: nowrap;
+    text-align: center;
+    border: 0px solid #EAEAEA;
+}
+
+
+.datatableDY .row:hover {
+    background-color: silver;
+    color: #000;
+}
+
+.datatableDY .row {
+    border-bottom: 0px solid #000000;
+}
+
+    .datatableDY .row TD {
+        border: 1px solid #E5E5E5;
+        height: 24px;
+        line-height: 24px;
+        word-break: break-all;
+        padding: 3px;
+    }
+
+.datatableDY .pager {
+    border-bottom-style: none;
+}
+
+.datatableDY .row .red {
+    color: #FF0000;
+}
